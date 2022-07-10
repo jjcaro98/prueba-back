@@ -31,7 +31,7 @@ public class ProgramasRest {
 		programasDAO.save(programas);
 		return programas;
 	}
-	@CrossOrigin(origins = "*",allowedHeaders = "*")
+	
 	@GetMapping("/lista")
 	public List<Programas> traer(){
 		return programasDAO.findAll();
@@ -43,14 +43,14 @@ public class ProgramasRest {
 	}
 	
 	@DeleteMapping("/eliminar/{id}")
-	public String eliminar(@PathVariable("id") Integer id) {
+	public Boolean eliminar(@PathVariable("id") Integer id) {
 		programasDAO.deleteById(id);
-		return("Se elimino correctamente");
+		return true;
 	}
 	
 	@PutMapping("/actualizar")
-	public String actualizar(@RequestBody Programas programas) {
+	public void actualizar(@RequestBody Programas programas) {
 		programasDAO.save(programas);
-		return "Se actualizo correctamente";
+		
 	}
 }

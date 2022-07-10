@@ -37,23 +37,26 @@ public class EstudianteRest {
 	@Autowired
 	private ProgramasDAO programasDAO;
 	
+	
 	@PostMapping("/registrar")
 	public Estudiante registrar(@RequestBody Estudiante estudiante) {	
 		estudianteDAO.save(estudiante);	
 		
 		return estudiante;
 	}
-	@CrossOrigin(origins = "*",allowedHeaders = "*")
+	
 	@GetMapping("/lista")
 	public List<Estudiante> traer(){
 		return estudianteDAO.findAll();
 	}
 	
 	@DeleteMapping("/eliminar/{id}")
-	public String eliminar(@PathVariable("id") Integer id) {
-		estudianteDAO.deleteById(id);
-	return"Se elimino correctamente";
+	public boolean eliminar(@PathVariable("id") Integer id) {
+		   estudianteDAO.deleteById(id);
+		
+	return true ;
 	}
+	
 	@PutMapping("/actualizar")
 	public void actualizar(@RequestBody Estudiante estudiante) {
 		estudianteDAO.save(estudiante);

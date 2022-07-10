@@ -19,7 +19,7 @@ public class Estudiante {
 	private String telefono;
 	
 
-	@Column
+	@Id
 	private Integer id;
 	
 	@Column
@@ -35,8 +35,8 @@ public class Estudiante {
 	@Temporal(TemporalType.DATE)
 	private Calendar registDate;
 	
-	@Id
-	private String id_usuario_creacion;
+	@Column
+	private Integer id_usuario_creacion;
 
 
 	
@@ -83,11 +83,11 @@ public class Estudiante {
 		this.registDate = registDate;
 	}
 
-	public String getId_usuario_creacion() {
+	public Integer getId_usuario_creacion() {
 		return id_usuario_creacion;
 	}
 
-	public void setId_usuario_creacion(String id_usuario_creacion) {
+	public void setId_usuario_creacion(Integer id_usuario_creacion) {
 		this.id_usuario_creacion = id_usuario_creacion;
 	}
 	public String getTelefono() {

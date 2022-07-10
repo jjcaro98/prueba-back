@@ -52,13 +52,12 @@ public class EstudianteRest {
 	@DeleteMapping("/eliminar/{id}")
 	public String eliminar(@PathVariable("id") Integer id) {
 		estudianteDAO.deleteById(id);
-		return("Se elimino correctamente");
+	return"Se elimino correctamente";
 	}
-	
 	@PutMapping("/actualizar")
-	public String actualizar(@RequestBody Estudiante estudiante) {
+	public void actualizar(@RequestBody Estudiante estudiante) {
 		estudianteDAO.save(estudiante);
-		return "Se actualizo correctamente";
+		
 	}
 	
 	@GetMapping("/buscar/{nombre}")
